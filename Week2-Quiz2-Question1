@@ -1,0 +1,24 @@
+Week2-Quiz2-Question1
+
+1, go to the github website (https://github.com/settings/applications)  to create a new app under the "developer settings/OAuth Applications"
+                  named as "github"
+                  Use any URL for the homepage URL
+                       (http://github.com is fine) and  http://localhost:1410 as the callback url
+2, on command window of R-concole
+  install.packages("httr")
+  library(httr)
+  myapp <- oauth_app("github", key = "YourKey", secret = "YourSecret")
+  
+  github_token <- oauth2.0_token(oauth_endpoints("github"), myapp)
+      #Waiting for authentication in browser...
+      #Press Esc/Ctrl + C to abort
+      #Until showing as "Authentication complete."
+      
+  gtoken <- config(token = github_token)
+  req <- GET("https://api.github.com/users/jtleek/repos", gtoken)
+  top_for_status(req)
+  content(req)
+    #there are totally 30 repos, datasharing is the 10th 
+  list(output[[10]]$name, output[[10]]$created_at)
+    #[1] "datasharing" 
+    #[2] "2013-11-07T13:25:07Z"
