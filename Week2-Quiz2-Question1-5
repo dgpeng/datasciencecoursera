@@ -22,3 +22,5 @@ Week2-Quiz2-Question1
   list(output[[10]]$name, output[[10]]$created_at)
     #[1] "datasharing" 
     #[2] "2013-11-07T13:25:07Z"
+
+Question 2
